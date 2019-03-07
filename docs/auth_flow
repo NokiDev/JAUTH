@@ -1,0 +1,25 @@
+@startuml
+
+Application -> Transaction : Query Transactions
+Transaction -> Auth : Verify Token
+Auth -> Transaction : Deny
+
+Transaction -> Application : Redirect 301 /auth/sign_in
+
+Application -> Auth : Sign-in /auth/sign_in
+Auth -> Auth : Hash Password with SHA256
+Auth -> BDD : Check stored vs supplied password
+Auth -> Auth : Generate JWT Token
+Auth -> BDD : Store JWT Token
+
+Auth -> Application : Send Back Token
+
+Application -> Transaction : Get Transactions /transactions
+Transaction -> Auth : Verify Token
+
+Auth -> Transaction : Approve
+Transaction -> BDD : Query Transactions
+BDD -> Transaction : return transaction list
+Transaction -> Application : Send back transactions
+
+@enduml

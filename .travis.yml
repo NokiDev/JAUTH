@@ -28,7 +28,8 @@ script:
   - bash <(curl -s https://codecov.io/bash)
 
 deploy :
-  on: master
+  on:
+    branch: master
    provider: bintray
    file: target/bin/bintray.json
    user: NokiDev

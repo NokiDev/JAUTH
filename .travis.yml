@@ -29,7 +29,6 @@ script:
 deploy :
    on: master 
    provider: bintray
-   skip_cleanup: true
    file: target/bin/bintray.json
    user: NokiDev
    key: $BINTRAY_API_KEY

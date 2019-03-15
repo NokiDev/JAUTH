@@ -12,5 +12,6 @@ services:
     ports:
       - 127.0.0.1:5432:5432
     environment:
-      POSTGRES_PASSWORD: test
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: jauthdb
     restart: unless-stopped

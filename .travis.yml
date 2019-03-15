@@ -21,8 +21,8 @@ addons:
  
 install: true
 script: 
-  - sonar-scanner
   - mvn clean install
+  - sonar-scanner
   - mvn test -B
   - bash <(curl -s https://codecov.io/bash)
 

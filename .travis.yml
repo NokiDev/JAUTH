@@ -28,12 +28,13 @@ script:
   - bash <(curl -s https://codecov.io/bash)
 
 deploy :
-  on: master
-   provider: bintray
-   file: target/bin/bintray.json
-   user: NokiDev
-   key: $BINTRAY_API_KEY
-   skip_cleanup: true
+  on:
+    branch: master
+  provider: bintray
+  file: target/bin/bintray.json
+  user: NokiDev
+  key: $BINTRAY_API_KEY
+  skip_cleanup: true
      
 
 services:

@@ -15,7 +15,8 @@ cache:
       
 install: true
 script: 
-  - ./mvnw clean install
+  - mvn clean install
+  - mvn test -B
   - bash <(curl -s https://codecov.io/bash)
 
 deploy :

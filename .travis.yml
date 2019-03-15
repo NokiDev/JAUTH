@@ -12,9 +12,16 @@ git:
 cache:
   directories:
     - $HOME/.m2
-      
+    - $HOME/.sonar/cache 
+addons:
+  sonarcloud:
+    organization: nokidev-github
+    token:
+      secure: $SONAR_TOKEN   
+ 
 install: true
 script: 
+  - sonar-scanner
   - mvn clean install
   - mvn test -B
   - bash <(curl -s https://codecov.io/bash)

@@ -31,3 +31,4 @@ deploy :
 
 services:
   - redis-server
+  - postgres-server

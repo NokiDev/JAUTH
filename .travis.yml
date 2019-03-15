@@ -12,6 +12,21 @@ git:
 cache:
   directories:
     - $HOME/.m2
+      
+install: true
+script: 
+  - ./mvnw clean install
+  - bash <(curl -s https://codecov.io/bash)
+
+deploy :
+   on: master 
+   provider: bintray
+   skip_cleanup: true
+   file: target/bin/bintray.json
+   user: NokiDev
+   key: $BINTRAY_API_KEY
+   skip_cleanup: true
+     
 
 services:
   - redis-server

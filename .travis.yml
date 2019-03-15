@@ -1,0 +1,41 @@
+language: java
+sudo: false
+
+dist: trusty
+os: linux
+jdk: openjdk11
+
+git:
+  depth: 10
+  quiet: true
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.sonar/cache 
+addons:
+  sonarcloud:
+    organization: nokidev-github
+    token:
+      secure: $SONAR_TOKEN   
+ 
+install: true
+script:
+  - psql -c 'create database jauthdb;' -U postgres
+  - mvn clean install
+  - sonar-scanner
+  - mvn test -B
+  - bash <(curl -s https://codecov.io/bash)
+
+deploy :
+  on: master
+   provider: bintray
+   file: target/bin/bintray.json
+   user: NokiDev
+   key: $BINTRAY_API_KEY
+   skip_cleanup: true
+     
+
+services:
+  - redis-server
+  - postgresql

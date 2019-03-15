@@ -1,0 +1,60 @@
+language: java
+sudo: false
+
+dist: trusty
+os: linux
+jdk: openjdk11
+
+git:
+  depth: 10
+  quiet: true
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_install:
+  - unset _JAVA_OPTIONS
+  - rm ~/.m2/settings.xml
+  - export MAVEN_SKIP_RC=true
+  - export MAVEN_OPTS="-XMn64M -Xmx512M -XX:CompressedClassSpaceSize=96M"
+  - export JAVA_OPTS="$JAVA_OPTS -XX:CompressedClassSpaceSize=96M"
+
+before_script:
+  - unset GEM_PATH GEM_HOME IRBRC
+  - unset _JAVA_OPTIONS
+  - export PATH="`pwd`/bin:$PATH"
+  - echo $HOME
+  - echo $JAVA_OPTS
+  - echo $MAVEN_OPTS
+
+env:
+  global:
+    - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xms48M -Xmx640M -XX:InitialCodeCacheSize=40M -XX:ReservedCodeCacheSize=120M -Djava.security.egd=file:/dev/./urandom"
+    - MALLOC_ARENA_MAX=2
+
+install: true
+
+jobs:
+  include:
+    - stage: test
+      jdk: openjdk11
+      script: mvn verify -Pcheck-semantic-version -DskipTests=true
+      env: CHECK_SEMANTIC_VERSION=true
+
+    - jdk: openjdk11
+      script: mvn -q verify
+      after_success:
+        - mvn clean cobertura:cobertura coveralls:report -P coveralls.io
+
+    - jdk: openjdk11
+      env: JAVADOC=true
+      script:
+        - mvn clean verify -DskipTests=true
+        - mvn javadoc:aggregate
+
+    - stage: deploy
+      jdk: openjdk11
+
+services:
+  - redis-server

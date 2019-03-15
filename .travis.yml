@@ -20,14 +20,15 @@ addons:
       secure: $SONAR_TOKEN   
  
 install: true
-script: 
+script:
+  - psql -c 'create database jauthdb;' -U postgres
   - mvn clean install
   - sonar-scanner
   - mvn test -B
   - bash <(curl -s https://codecov.io/bash)
 
 deploy :
-   on: master 
+  on: master
    provider: bintray
    file: target/bin/bintray.json
    user: NokiDev
@@ -37,4 +38,4 @@ deploy :
 
 services:
   - redis-server
-  - postgres-server
+  - postgresql

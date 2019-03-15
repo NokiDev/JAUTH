@@ -2,10 +2,12 @@
 
 develop : 
 [![Build Status](https://travis-ci.org/NokiDev/JAUTH.svg?branch=develop)](https://travis-ci.org/NokiDev/JAUTH)
-
+[![codecov](https://codecov.io/gh/NokiDev/JAUTH/branch/develop/graph/badge.svg)](https://codecov.io/gh/NokiDev/JAUTH)
 
 master :
 [![Build Status](https://travis-ci.org/NokiDev/JAUTH.svg?branch=master)](https://travis-ci.org/NokiDev/JAUTH)
+[![codecov](https://codecov.io/gh/NokiDev/JAUTH/branch/master/graph/badge.svg)](https://codecov.io/gh/NokiDev/JAUTH)
+
 
 
 

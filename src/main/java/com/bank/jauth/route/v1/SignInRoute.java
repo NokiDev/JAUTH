@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/auth/v1")
-public class RouteDemo {
+public class SignInRoute {
 
-    @GetMapping(path = "/", produces = "application/json")
-    public String getAll() {
-      return "true";
-    }
+	@GetMapping(path = "/sign_in", produces = "application/json")
+	public String getAll() {
+		return "true";
+	}
 }

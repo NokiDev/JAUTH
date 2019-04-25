@@ -29,9 +29,10 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/sign_in", method = RequestMethod.POST)
-	public String SignIn(@RequestBody String username, @RequestBody String password) {
+	public boolean SignIn(@RequestBody String username, @RequestBody String password) {
 
-		return null;
+		//return "bonjour " + username + " : " + password;
+		return true;
 	}
 
 	@RequestMapping(value = "/sign_out", method = RequestMethod.POST)
@@ -40,7 +41,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/check_token", method = RequestMethod.GET)
-	public boolean CheckToken(@RequestBody String token) {
+	public boolean CheckToken() {
 
 		return false;
 	}
@@ -50,5 +51,12 @@ public class LoginController {
 
 		return "";
 	}
-
+	@RequestMapping(value = "/404")
+	public String Error404(){
+		return "404";
+	}
+	@RequestMapping(value = "/403")
+	public String Error403(){
+		return "403";
+	}
 }

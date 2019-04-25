@@ -1,3 +1,16 @@
+```
+ ▄▄▄██▀▀▀▄▄▄       █    ██ ▄▄▄█████▓ ██░ ██ 
+   ▒██  ▒████▄     ██  ▓██▒▓  ██▒ ▓▒▓██░ ██▒
+   ░██  ▒██  ▀█▄  ▓██  ▒██░▒ ▓██░ ▒░▒██▀▀██░
+▓██▄██▓ ░██▄▄▄▄██ ▓▓█  ░██░░ ▓██▓ ░ ░▓█ ░██ 
+ ▓███▒   ▓█   ▓██▒▒▒█████▓   ▒██▒ ░ ░▓█▒░██▓
+ ▒▓▒▒░   ▒▒   ▓▒█░░▒▓▒ ▒ ▒   ▒ ░░    ▒ ░░▒░▒
+ ▒ ░▒░    ▒   ▒▒ ░░░▒░ ░ ░     ░     ▒ ░▒░ ░
+ ░ ░ ░    ░   ▒    ░░░ ░ ░   ░       ░  ░░ ░
+ ░   ░        ░  ░   ░               ░  ░  ░
+```
+
+
 *Be careful this module has not been tested and cannot be used in production*
 
 develop : 
@@ -7,12 +20,9 @@ develop :
 master :
 [![Build Status](https://travis-ci.org/NokiDev/JAUTH.svg?branch=master)](https://travis-ci.org/NokiDev/JAUTH)
 [![codecov](https://codecov.io/gh/NokiDev/JAUTH/branch/master/graph/badge.svg)](https://codecov.io/gh/NokiDev/JAUTH)
-0
 
+-----
 
-
-
-# JAUTH
 Authentication JEE microservice, with TOTP, OAuth and Social Login Integrations
 
 This project aims to provide authentication and auth companions (TOTP, OAuth ...) for JEE applications as a micro service

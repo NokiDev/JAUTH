@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Token {
 	@Id
+	private long id;
 	@GeneratedValue
 	private String token;
 	@Column(nullable = false)
@@ -22,18 +23,18 @@ public class Token {
 
 	}
 
-	public Token(long userId, String token) {
+	public Token(long id, String token) {
 		super();
-		this.userId = userId;
+		this.id = id;
 		this.token = token;
 	}
 
-	public long getUserId() {
-		return userId;
+	public long getid() {
+		return id;
 	}
 
-	public void setUserId() {
-		this.userId = userId;
+	public void setid() {
+		this.id = id;
 	}
 
 	public String getToken() {
@@ -44,4 +45,11 @@ public class Token {
 		this.token = token;
 	}
 
+	@Override
+	public String toString() {
+		return "Token{" +
+				"token='" + token + '\'' +
+				", id=" + id +
+				'}';
+	}
 }

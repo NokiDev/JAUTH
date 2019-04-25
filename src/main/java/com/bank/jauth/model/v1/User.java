@@ -30,6 +30,14 @@ public class User {
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", password='" + password + '\'' +
+				'}';
+	}
+
 	public long getId() {
 		return id;
 	}
